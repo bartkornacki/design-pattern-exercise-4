@@ -12,10 +12,14 @@ public class Main {
         Auction auction = new Auction(1,"Coffee",null,
                 LocalDateTime.now().plusDays(2L),seller,0,null);
 
-        AuctionService auctionService = new AuctionService();
-        auctionService.bid(auction,new Customer("Anna Kowalik"),20);
+//        System.out.println(AuctionService.getInstance(auction,new Customer("Anna Kowalik"),20));
+//        System.out.println(AuctionService.getInstance(auction,new Customer("Krzysztof Adamowicz"),25));
+        AuctionService auctionService1 = AuctionService.getInstance(auction,new Customer("Anna Kowalik"),20);
+        AuctionService auctionService2 = AuctionService.getInstance(auction,new Customer("Krzysztof Adamowicz"),25);
 
-        auctionService.bid(auction,new Customer("Krzysztof Adamowicz"),25);
+//        AuctionService auctionService = new AuctionService();
+//        auctionService.bid(auction,new Customer("Anna Kowalik"),20);
+//        auctionService.bid(auction,new Customer("Krzysztof Adamowicz"),25);
 
 
         System.out.println("Auction with id: " + auction.getId()+ " finished. Highest bid: " + auction.getHighestBid() + " PLN.");
