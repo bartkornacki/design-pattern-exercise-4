@@ -1,25 +1,10 @@
-//package model;
-//
-//public class AuctionService {
-//    public boolean bid(Auction auction, Customer buyer, double amount) {
-//        if (auction.getHighestBid()<amount) {
-//            auction.setHighestBid(amount);
-//            auction.setBuyer(buyer);
-//            return true;
-//        }
-//        return false;
-//    }
-//}
-
-
-
 package model;
 
 public class AuctionService {
     private static AuctionService instance;
 
 
-    public AuctionService() {
+    private AuctionService() {
     }
 
     public boolean bid(Auction auction, Customer buyer, double amount) {
