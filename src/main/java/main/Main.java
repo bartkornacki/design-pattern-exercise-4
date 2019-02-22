@@ -9,8 +9,15 @@ import java.time.LocalDateTime;
 public class Main {
     public static void main(String[] args) {
         Customer seller = new Customer("Jan Kowalski");
-        Auction auction = new Auction(1,"Coffee",null,
-                LocalDateTime.now().plusDays(2L),seller,0,null);
+        Auction auction = new Auction.AuctionBuilder()
+                .withId(1)
+                .withSeller(seller)
+                .withDescription("Dupa")
+                .build();
+
+
+//        Auction auction = new Auction(1,"Coffee",null,
+//                LocalDateTime.now().plusDays(2L),seller,0,null);
 
         AuctionService auctionService = AuctionService.getInstance();
         auctionService.bid(auction,new Customer("Anna Kowalik"),20);

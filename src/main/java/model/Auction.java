@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Auction {
@@ -13,6 +14,9 @@ public class Auction {
 
     private double highestBid;
     private Customer buyer;
+
+    public Auction() {
+    }
 
     public Auction(int id, String item, String description, LocalDateTime dueDate, Customer seller, double highestBid, Customer buyer) {
         this.id = id;
@@ -78,5 +82,67 @@ public class Auction {
 
     public void setBuyer(Customer buyer) {
         this.buyer = buyer;
+    }
+
+
+    public static class AuctionBuilder{
+        private int id;
+
+        private String item;
+        private String description;
+        private LocalDateTime dueDate;
+
+        private Customer seller;
+
+        private double highestBid;
+        private Customer buyer;
+
+        public AuctionBuilder() {
+        }
+
+        public AuctionBuilder withId(int id){
+            this.id = id;
+            return this;
+        }
+
+        public AuctionBuilder withItem(String item){
+            this.item = item;
+            return this;
+        }
+        public AuctionBuilder withDescription(String description){
+            this.description = description;
+            return this;
+        }
+
+        public AuctionBuilder withDueDate(LocalDateTime dueDate){
+            this.dueDate = dueDate;
+            return this;
+        }
+        public AuctionBuilder withSeller(Customer seller){
+            this.seller = seller;
+            return this;
+        }
+        public AuctionBuilder withHighestBid (double highestBid){
+            this.highestBid = highestBid;
+            return this;
+        }
+        public AuctionBuilder withBuyer (Customer buyer){
+            this.buyer = buyer;
+            return this;
+        }
+
+        public Auction build(){
+            Auction auction = new Auction();
+
+            auction.setId(this.id);
+            auction.setItem(this.item);
+            auction.setDescription(this.description);
+            auction.setDueDate(this.dueDate);
+            auction.setSeller(this.seller);
+            auction.setHighestBid(this.highestBid);
+            auction.setBuyer(this.buyer);
+
+            return auction;
+        }
     }
 }
