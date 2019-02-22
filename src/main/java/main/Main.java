@@ -24,8 +24,7 @@ public class Main {
         auctionService.bid(auction,new Customer("Krzysztof Adamowicz"),25);
         notifier.notifiedObservers();
         auctionService.bid(auction,new Customer("Krzysztof Adamowicz"),35);
-
-        seller.printNotifications();
+        notifier.notifiedObservers();
         System.out.println("Auction with id: " + auction.getId()+ " finished. Highest bid: " + auction.getHighestBid() + " PLN.");
     }
 }
