@@ -9,6 +9,6 @@ public interface Notifier {
 
     void unregisteredObserver(Observer observer);
 
-    void notifiedObservers();
+    void notifyObservers();
 
 }

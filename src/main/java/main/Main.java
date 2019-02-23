@@ -2,8 +2,6 @@ package main;
 
 import model.*;
 
-import java.time.LocalDateTime;
-
 public class Main {
     public static void main(String[] args) {
         Customer seller = new Customer("Jan Kowalski");
@@ -18,13 +16,20 @@ public class Main {
         Notifier notifier = new NotifierImp();
         notifier.registerObserver(seller);
 
+        Customer customer1 = new Customer("Anna Kowalik");
+        Customer customer2 = new Customer("Krzysztof Adamowicz");
+        Customer customer3 = new Customer("Krzysztof Adamowicz");
 
-        auctionService.bid(auction,new Customer("Anna Kowalik"),20);
-        notifier.notifiedObservers();
-        auctionService.bid(auction,new Customer("Krzysztof Adamowicz"),25);
-        notifier.notifiedObservers();
-        auctionService.bid(auction,new Customer("Krzysztof Adamowicz"),35);
-        notifier.notifiedObservers();
-        System.out.println("Auction with id: " + auction.getId()+ " finished. Highest bid: " + auction.getHighestBid() + " PLN.");
+        notifier.registerObserver(customer1);
+        notifier.registerObserver(customer2);
+        notifier.registerObserver(customer3);
+
+        auctionService.bid(auction, customer1,20);
+        notifier.notifyObservers();
+        auctionService.bid(auction, customer2,25);
+        notifier.notifyObservers();
+        auctionService.bid(auction, customer3,35);
+        notifier.notifyObservers();
+//        System.out.println("Auction with id: " + auction.getId()+ " finished. Highest bid: " + auction.getHighestBid() + " PLN.");
     }
 }

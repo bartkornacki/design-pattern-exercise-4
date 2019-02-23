@@ -20,7 +20,7 @@ public class NotifierImp implements Notifier {
     }
 
     @Override
-    public void notifiedObservers() {
+    public void notifyObservers() {
         observers.forEach(observer -> observer.update());
     }
 }
