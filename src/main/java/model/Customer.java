@@ -27,6 +27,6 @@ public class Customer implements Observer {
 
     @Override
     public void update() {
-        System.out.println(fullName + ", \nnew bid has been submitted. Please review the auction.");
+        System.out.println("Dear " + fullName + ", \nnew bid has been submitted. Please review the auction.");
     }
 }
